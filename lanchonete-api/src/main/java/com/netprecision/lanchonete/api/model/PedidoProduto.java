@@ -1,5 +1,6 @@
 package com.netprecision.lanchonete.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,9 +8,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class PedidoProduto {
 
   @Id
@@ -18,13 +21,19 @@ public class PedidoProduto {
 
   @ManyToOne
   @JoinColumn(name = "pedido")
+  @JsonIgnore
   private Pedido pedido;
 
-  @ManyToOne
+  @ManyToOne()
   @JoinColumn(name = "produto")
   private Produto produto;
 
   private Integer quantidade;
 
-  // getters e setters
+  public PedidoProduto(Pedido pedido, Produto produto, Integer quantidade) {
+    this.pedido = pedido;
+    this.produto = produto;
+    this.quantidade = quantidade;
+  }
+
 }

@@ -1,14 +1,9 @@
 package com.netprecision.lanchonete.api.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -24,6 +19,13 @@ public class Pedido {
 
   private Double precoTotal;
 
-  private Date dataPedido;
+  private LocalDateTime dataCriacaoPedido;
+
+  private Boolean fechado;
+
+  public Pedido() {
+    this.dataCriacaoPedido = LocalDateTime.now();
+    this.fechado = false;
+  }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class PedidoDTO {
+public class ItensPedidoDTO {
 
   private List<PedidoProduto> itens;
 
