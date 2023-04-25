@@ -16,9 +16,11 @@ Antes de executar o projeto, é necessário ter instalado:
 Para configurar o banco de dados, é necessário criar um schema chamado "lanchonete" no MySQL Server. Além disso, é necessário configurar o usuário e senha do MySQL no arquivo `application.properties`, que se encontra na pasta `src/main/resources`.
 
 O arquivo `application.properties` deve conter as seguintes linhas:
+``` java
 spring.datasource.url=jdbc:mysql://localhost/lanchonete?createDatabaseIfNotExist=true&serverTimezone=UTC
 spring.datasource.username=root
 spring.datasource.password=root
+```
 
 Certifique-se de que o usuário e senha configurados têm permissão para criar e manipular tabelas no schema "lanchonete".
 
@@ -27,8 +29,14 @@ Certifique-se de que o usuário e senha configurados têm permissão para criar 
 Para executar o projeto, siga os seguintes passos:
 
 1. Abra o terminal e navegue até a pasta raiz do projeto.
-2. Execute o seguinte comando para compilar o projeto: ./mvnw clean package
-3. Após a compilação, execute o seguinte comando para iniciar o servidor: ./mvnw spring-boot:run
+2. Execute o seguinte comando para compilar o projeto: 
+```console
+$ ./mvnw clean package
+```
+3. Após a compilação, execute o seguinte comando para iniciar o servidor:
+```console
+$ ./mvnw spring-boot:run
+```
 4. O servidor será iniciado na porta 8080. Você pode acessar a API através do seguinte endereço: http://localhost:8080/
 
 ## Utilização da API
