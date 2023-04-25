@@ -2,6 +2,7 @@ package com.netprecision.lanchonete.api.controller;
 
 import com.netprecision.lanchonete.api.model.Pedido;
 import com.netprecision.lanchonete.api.model.dto.ItensPedidoDTO;
+import com.netprecision.lanchonete.api.model.dto.PagamentoDTO;
 import com.netprecision.lanchonete.api.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,19 @@ public class lanchoneteController {
     return new ResponseEntity<>("Pedido cadastrado com sucesso!", HttpStatus.CREATED);
   }
 
-  @PutMapping("/incrementarPedido/{id}")
-  public ResponseEntity<Pedido> incrementarPedido(@PathVariable Long id, @RequestBody ItensPedidoDTO itensPedidoDTO) {
-    return new ResponseEntity<>(pedidoService.incrementarPedido(id, itensPedidoDTO), HttpStatus.OK);
+  @PutMapping("/incrementarPedido/{idPedido}")
+  public ResponseEntity<Pedido> incrementarPedido(@PathVariable Long idPedido, @RequestBody ItensPedidoDTO itensPedidoDTO) {
+    return new ResponseEntity<>(pedidoService.incrementarPedido(idPedido, itensPedidoDTO), HttpStatus.OK);
+  }
+
+  @PutMapping("/decrementarPedido/{idPedido}")
+  public ResponseEntity<Pedido> decrementarPedido(@PathVariable Long idPedido, @RequestBody ItensPedidoDTO itensPedidoDTO) {
+    return new ResponseEntity<>(pedidoService.decrementarPedido(idPedido, itensPedidoDTO), HttpStatus.OK);
+  }
+
+  @PutMapping("/fecharPedido/{idPedido}")
+  public ResponseEntity<Pedido> fecharPedido(@PathVariable Long idPedido, @RequestBody PagamentoDTO pagamentoDTO) {
+    return new ResponseEntity<>(pedidoService.fecharPedido(idPedido, pagamentoDTO.getValorPagamento()), HttpStatus.OK);
   }
 
   @GetMapping("/listarPedidos")
@@ -34,9 +45,9 @@ public class lanchoneteController {
     return new ResponseEntity<>(pedidos, HttpStatus.OK);
   }
 
-  @GetMapping("/listarPedido/{id}")
-  public ResponseEntity<Pedido> listarPedidoPorId(@PathVariable Long id) {
-    Pedido pedido = pedidoService.listarPorId(id);
+  @GetMapping("/listarPedido/{idPedido}")
+  public ResponseEntity<Pedido> listarPedidoPorId(@PathVariable Long idPedido) {
+    Pedido pedido = pedidoService.listarPorId(idPedido);
     return new ResponseEntity<>(pedido, HttpStatus.OK);
   }
 

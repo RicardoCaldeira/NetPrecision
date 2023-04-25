@@ -8,6 +8,8 @@ import java.util.List;
 public interface PedidoService {
   Pedido cadastrar(ItensPedidoDTO itensPedidoDTO);
   Pedido incrementarPedido(Long idPedido, ItensPedidoDTO itensPedidoDTO);
+  Pedido decrementarPedido(Long idPedido, ItensPedidoDTO itensPedidoDTO);
+  Pedido fecharPedido(Long idPedido, Double valorPagamento);
   List<Pedido> listarTodos();
   Pedido listarPorId(Long id);
 }

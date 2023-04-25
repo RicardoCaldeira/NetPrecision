@@ -21,11 +21,28 @@ public class Pedido {
 
   private LocalDateTime dataCriacaoPedido;
 
+  private LocalDateTime dataPagamentoPedido;
+
   private Boolean fechado;
+
+  private Double valorPagamento;
+
+  private Double valorTroco;
 
   public Pedido() {
     this.dataCriacaoPedido = LocalDateTime.now();
     this.fechado = false;
+  }
+
+  public void fechar(Double valorPagamento) {
+    this.valorPagamento = valorPagamento;
+    this.valorTroco = valorPagamento - this.precoTotal;
+    this.dataPagamentoPedido = LocalDateTime.now();
+    this.fechado = true;
+  }
+
+  public Boolean estaFechado() {
+    return this.fechado;
   }
 
 }
