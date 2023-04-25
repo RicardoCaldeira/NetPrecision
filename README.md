@@ -54,7 +54,7 @@ A API fornece as seguintes operações:
 
 - POST /lanchonete/cadastrarPedido: cria um novo pedido no banco de dados com base na quantidade informada.
   Ex Json a ser enviado:
-` ` `json
+``` json
 {
   "itens": [
     {
@@ -65,11 +65,11 @@ A API fornece as seguintes operações:
     }
   ]
 }
-` ` `
+```
 
 - PUT /lanchonete/incrementarPedido/{idPedido}: Adiciona novos produtos à um pedido no banco de dados com base na quantidade informada.
   Ex Json a ser enviado:
-` ` `json
+```json
 {
   "itens": [
     {
@@ -80,11 +80,11 @@ A API fornece as seguintes operações:
     }
   ]
 }
-` ` `
+```
 
 - PUT /lanchonete/decrementarPedido/{idPedido}: Retira produtos de um pedido no banco de dados com base na quantidade informada.
   Ex Json a ser enviado:
-` ` `json
+```json
 {
   "itens": [
     {
@@ -95,15 +95,15 @@ A API fornece as seguintes operações:
     }
   ]
 }
-` ` `
+```
 
 - PUT /lanchonete/fecharPedido/{idPedido}: Fecha o pedido com o ID especificado se o valor do pagamento for sufuciente para concluir o pedido.
   Ex Json a ser enviado:
-` ` `json
+```json
 {
     "valorPagamento": 30.0
 }
-` ` `
+```
 
 ## Conclusão
 
@@ -114,12 +114,3 @@ Agradeço à equipe de recrutamento da NetPrecision pela oportunidade de partici
 Caso tenha alguma dúvida ou sugestão para o projeto, sinta-se à vontade para entrar em contato.
 
 ...
-
-
-
-
-
-
-
-
-
