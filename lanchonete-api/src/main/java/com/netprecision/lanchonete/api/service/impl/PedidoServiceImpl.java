@@ -34,7 +34,7 @@ public class PedidoServiceImpl implements PedidoService {
   public Pedido cadastrar(ItensPedidoDTO itensPedidoDTO) {
     Pedido novoPedido = new Pedido();
 
-    Double precoTotal = 0.0;
+    double precoTotal = 0.0;
     List<PedidoProduto> pedidoProdutoList = new ArrayList<>();
     for (PedidoProduto item : itensPedidoDTO.getItens()) {
       PedidoProduto pedidoProduto = new PedidoProduto();
@@ -106,7 +106,7 @@ public class PedidoServiceImpl implements PedidoService {
 
       PedidoProduto pedidoProduto = pedidoProdutoRepository.findByPedidoAndProduto(pedido, produto);
       if (pedidoProduto == null) {
-        throw new IllegalArgumentException(
+        throw new ProductException(
             "O pedido informado não contém o produto " + item.getProduto().getId());
       }
 
@@ -138,10 +138,12 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     if (valorPagamento < pedido.getPrecoTotal()) {
-      throw new IllegalArgumentException("Valor de pagamento insuficiente!");
+      throw new OrderException("Valor de pagamento insuficiente!");
     }
 
     pedido.fechar(valorPagamento);
+    pedidoRepository.save(pedido);
+
     return pedido;
   }
 
