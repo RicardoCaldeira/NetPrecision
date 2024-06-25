@@ -110,12 +110,4 @@ $ ./mvnw spring-boot:run
 ```
 4. O servidor será iniciado na porta 8080. Você pode acessar a API através do seguinte endereço: http://localhost:8080/
 
-## Conclusão
-
-Este projeto foi desenvolvido como parte da avaliação do processo seletivo da empresa NetPrecision.
-
-Agradeço à equipe de recrutamento da NetPrecision pela oportunidade de participar do processo seletivo e espero ter a chance de contribuir com a empresa em um futuro próximo.
-
-Caso tenha alguma dúvida ou sugestão para o projeto, sinta-se à vontade para entrar em contato.
-
 ...
